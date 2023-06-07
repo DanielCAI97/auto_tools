@@ -5,11 +5,13 @@
 import pandas as pd
 
 
-class excel_operation():
-    
+class TabulationProcess:
+    def __int__(self, file):
+        self.file = file
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    def tabul_dataframe(self):
+        if '.csv' in self.file:
+            data = pd.read_csv(self.file)
+        elif '.xls' or '.xlsx' or '.xlsm' in self.file:
+            data = pd.read_excel(self.file)
+        return data
