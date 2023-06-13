@@ -5,13 +5,14 @@
 import pandas as pd
 
 
-class TabulationProcess:
-    def __int__(self, file):
+class TableReadWrite:
+    def __init__(self, file):
         self.file = file
 
-    def tabul_dataframe(self):
-        if '.csv' in self.file:
+    # read files of distinctive extensions and turn the files into panda data frame
+    def file_to_dataframe(self):
+        if '.csv' in self.file:  # read csv files
             data = pd.read_csv(self.file)
-        elif '.xls' or '.xlsx' or '.xlsm' in self.file:
+        elif '.xls' or '.xlsx' or '.xlsm' or '.xlt' in self.file:  # read excel files
             data = pd.read_excel(self.file)
         return data
